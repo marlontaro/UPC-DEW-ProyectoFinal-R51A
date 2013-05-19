@@ -9,4 +9,5 @@ Github:
 		- Marlon Cordova  [ https://github.com/marlontaro ]
 		- Gilberto Huahuasonco [ https://github.com/ghuahuasonco ]
 		- Manuel Vasquez [ https://github.com/ManuVVG ]
-
+		- Luis Cahua [ https://github.com/LuisCahua ]
+		- Wilde Sifuentes [ https://github.com/wsifuentes ]
