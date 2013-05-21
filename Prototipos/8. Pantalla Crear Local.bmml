@@ -72,9 +72,9 @@
         <text>Cuidad</text>
       </controlProperties>
     </control>
-    <control controlID="170" controlTypeID="com.balsamiq.mockups::ComboBox" x="510" y="363" w="294" h="-1" measuredW="61" measuredH="23" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="170" controlTypeID="com.balsamiq.mockups::ComboBox" x="510" y="363" w="294" h="-1" measuredW="95" measuredH="23" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Rock</text>
+        <text>Seleccione</text>
       </controlProperties>
     </control>
     <control controlID="171" controlTypeID="com.balsamiq.mockups::Map" x="510" y="411" w="584" h="307" measuredW="252" measuredH="222" zOrder="18" locked="false" isInGroup="-1"/>
