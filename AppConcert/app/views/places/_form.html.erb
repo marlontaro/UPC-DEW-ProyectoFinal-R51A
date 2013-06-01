@@ -11,35 +11,74 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <div class="form-horizontal"> 
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :name %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :address %>   
+      </span>
+      <div class="controls" >
+        <%= f.text_field :address %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">    
+        <%= f.label :phone %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :image %> 
+      </span>
+      <div class="controls" >
+        <%= f.text_field :image %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :longitude %> 
+      </span>
+      <div class="controls" >
+        <%= f.text_field :longitude %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :latitude %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :latitude %>
+      </div>
+    </div> 
+    
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :district %> 
+      </span>
+      <div class="controls" >
+        <%= f.collection_select :district_id, District.all, :id, :name, :prompt => true %>    
+      </div>
+    </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Save', :class => 'btn btn-primary' %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :district %><br />
-    <%= f.text_field :district %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
   </div>
 <% end %>

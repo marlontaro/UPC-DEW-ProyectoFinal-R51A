@@ -1,23 +1,43 @@
-<h1>Listing districts</h1>
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                  <h5>Listing districts</h5>
+                  <div class="buttons">  
+                    <%= link_to 'New District', new_district_path , :class => 'btn btn-primary'%>
+                  </div>
+                </div>
+                
+                <div class="widget-content">
+                  
+                  <div style="padding-top:10px;padding-left:10px">
+                 <table class="table table-hover" width="700px">
+                  <thead>
+                  <tr>
+                      <th width="30px">Code</th>
+                          <th width="400px">Name</th>
+                          <th width="20px"></th>
+                          <th width="20px"></th>
+                          <th width="20px"></th>
+                  </tr>
+                </thead>
+                <% @districts.each do |district| %>
+                  <tr>
+                    <td><%= district.id %></td>
+                    <td><%= district.name %></td>
+                    <td><%= link_to 'Show', district %></td>
+                    <td><%= link_to 'Edit', edit_district_path(district) %></td>
+                    <td><%= link_to 'Destroy', district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+                </table>
+       
+                   </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+                </div>
+             </div>
+          
+         </div>
 
-<% @districts.each do |district| %>
-  <tr>
-    <td><%= district.name %></td>
-    <td><%= link_to 'Show', district %></td>
-    <td><%= link_to 'Edit', edit_district_path(district) %></td>
-    <td><%= link_to 'Destroy', district, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New District', new_district_path %>
+  </div>
