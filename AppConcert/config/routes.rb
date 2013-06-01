@@ -1,4 +1,22 @@
 AppConcert::Application.routes.draw do
+  resources :concerts
+
+
+  resources :users
+
+
+  resources :groups
+
+
+  resources :places
+
+
+  resources :styles
+
+
+  resources :districts
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comment: MyText
+  date: 2013-05-31
+  score: 1
+  concert: 
+  user: 
+
+two:
+  comment: MyText
+  date: 2013-05-31
+  score: 1
+  concert: 
+  user: 
