@@ -1,4 +1,16 @@
-AppConcert::Application.routes.draw do
+Evento::Application.routes.draw do
+  resources :musical_groups
+
+
+  resources :musical_styles
+
+
+  resources :places
+
+
+  resources :districts
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
