@@ -5,24 +5,26 @@
                 <div class="widget-title">
                   <h5>Listing styles</h5>
                   <div class="buttons">  
-                    <%= link_to 'New Style', new_style_path , :class => 'btn btn-primary' %>
+                    <%= link_to 'New Style', new_style_path , :class => 'btn btn-primary' %>    
                   </div>
                 </div>
                 
                 <div class="widget-content">
-                   
+                  
                   <div style="padding-top:10px;padding-left:10px">
-                      <table class="table table-hover">
+                      <table class="table table-hover" width="700px">
                       <thead>
                         <tr>
-                          <th>Name</th>
-                          <th></th>
-                          <th></th>
-                          <th></th>
+                          <th width="30px">Code</th>
+                          <th width="400px">Name</th>
+                          <th width="20px"></th>
+                          <th width="20px"></th>
+                          <th width="20px"></th>
                         </tr>
                       </thead>
                       <% @styles.each do |style| %>
                         <tr>
+                          <td><%= style.id %></td>
                           <td><%= style.name %></td>
                           <td><%= link_to 'Show', style  %></td>
                           <td><%= link_to 'Edit', edit_style_path(style) %></td>
@@ -36,7 +38,7 @@
 
                 </div>
              </div>
-        
+          
          </div>
 
   </div>

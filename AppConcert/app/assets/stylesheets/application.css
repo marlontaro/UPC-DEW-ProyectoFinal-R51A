@@ -12,6 +12,10 @@
  *= require_tree .
  */
 /* Widgets */
+.
+.table {
+    width: auto;
+}
 
 .widget-box {
     background: none repeat scroll 0 0 #FFFFFF;/*#F9F9F9;*/
