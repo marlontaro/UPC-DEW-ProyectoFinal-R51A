@@ -2,11 +2,8 @@
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Start time</th>
-    <th>End time</th>
-    <th>State</th>
-    <th>User</th>
+    <th>Date</th>    
+    <th>Created</th>
     <th>Place</th>
     <th>Group</th>
     <th></th>
@@ -16,13 +13,10 @@
 
 <% @concerts.each do |concert| %>
   <tr>
-    <td><%= concert.date %></td>
-    <td><%= concert.start_time %></td>
-    <td><%= concert.end_time %></td>
-    <td><%= concert.state %></td>
-    <td><%= concert.user %></td>
-    <td><%= concert.place %></td>
-    <td><%= concert.group %></td>
+    <td><%= concert.date %></td>     
+    <td><%= concert.user.name %></td>
+    <td><%= concert.place.name %></td>
+    <td><%= concert.group.name %></td>
     <td><%= link_to 'Show', concert %></td>
     <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
     <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -29,15 +29,17 @@
   </div>
   <div class="field">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.collection_select :user_id, User.all, :id, :name, :prompt => true %>    
   </div>
   <div class="field">
     <%= f.label :place %><br />
-    <%= f.text_field :place %>
+    <%= f.collection_select :place_id, Place.all, :id, :name, :prompt => true %>   
+     
   </div>
   <div class="field">
     <%= f.label :group %><br />
-    <%= f.text_field :group %>
+    <%= f.collection_select :group_id, Group.all, :id, :name, :prompt => true %>   
+     
   </div>
   <div class="actions">
     <%= f.submit %>

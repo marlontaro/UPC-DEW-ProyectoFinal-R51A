@@ -1,5 +1,13 @@
-<p id="notice"><%= notice %></p>
-
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+          <h5>Show</h5>
+                 </div>
+                
+                <div class="widget-content"><p id="notice"><%= notice %></p>
+<div class="form-horizontal"> 
 <p>
   <b>Type:</b>
   <%= @user.user_type %>
@@ -45,6 +53,13 @@
   <%= @user.password %>
 </p>
 
+ <div class="form-actions">
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-primary'  %>
+<%= link_to 'Back', users_path, :class => 'btn'  %>
+ </div>
+ </div>
+          
+         </div>
+
+  </div>    
