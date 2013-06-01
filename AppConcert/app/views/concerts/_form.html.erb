@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+ <div class="form-horizontal"> 
 
   <div class="field">
     <%= f.label :date %><br />
@@ -41,7 +42,9 @@
     <%= f.collection_select :group_id, Group.all, :id, :name, :prompt => true %>   
      
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit 'Save', :class => 'btn btn-primary'   %>
   </div>
+
+     </div>
 <% end %>
