@@ -1,10 +1,10 @@
-<%= form_for(@style) do |f| %>
-  <% if @style.errors.any? %>
+<%= form_for(@sex) do |f| %>
+  <% if @sex.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
+      <h2><%= pluralize(@sex.errors.count, "error") %> prohibited this sex from being saved:</h2>
 
       <ul>
-      <% @style.errors.full_messages.each do |msg| %>
+      <% @sex.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -14,18 +14,16 @@
   <div class="form-horizontal"> 
     <div class="control-group">
       <span class="control-label">
-        <%= f.label :name, "Nombre" %>
+        <%= f.label :name , "Nombre" %> 
       </span>
       <div class="controls" >
-        <%= f.text_field :name %>
-      </div>
+       <%= f.text_field :name %>
     </div>
-    <div class="form-actions"> 
+    </div>
 
+    <div class="form-actions">
       <%= button_tag( type: 'submit', class: "btn btn-primary") do %>
         <i class="icon-ok icon-white"></i> Guardar
       <% end %>
     </div>
-
-   </div>
 <% end %>

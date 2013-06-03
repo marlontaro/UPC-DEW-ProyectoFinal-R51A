@@ -1,0 +1,58 @@
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                  <h5>Tipo de Usuarios</h5>
+                  <div class="buttons">  
+                    <%= link_to new_typeuser_path, :class => 'btn btn-primary' do %>
+                        <i class="icon-plus icon-white"></i> Agregar Tipo de Usuario
+                    <% end %>    
+                  </div>
+                </div>
+                
+                <div class="widget-content">
+                  
+                  <div style="padding-top:10px;padding-left:10px">
+                    <table class="table table-hover" width="700px"> 
+                    <thead>
+                    <tr>
+                        <th width="30px">Codigo</th>
+                        <th width="400px">Nombre</th>
+                        <th width="10px"></th>
+                        <th width="10px"></th>
+                        <th width="10px"></th>
+                    </tr>
+                    </thead>
+
+                  <% @typeusers.each do |typeuser| %>
+                    <tr>
+                      <td><%= typeuser.id %></td>
+                      <td><%= typeuser.name %></td>
+                      <td>
+                            <%= link_to typeuser , :title => "Mostrar"  do %>
+                                  <i class="icon-align-justify"></i>
+                            <% end %> 
+                      </td>
+                      <td>
+                          <%= link_to edit_typeuser_path(typeuser), :title => "Editar"  do %>
+                                  <i class="icon-pencil"></i>
+                          <% end %> 
+                      </td>
+                      <td>
+                          <%= link_to typeuser, method: :delete, data: { confirm:'¿Estas seguro?' }, :title => "Eliminar" do %>
+                                  <i class="icon-remove"></i>
+                          <% end %> 
+                      </td>
+                    </tr>
+                  <% end %>
+                  </table>
+                  </div>
+
+                </div>
+             </div>
+          
+         </div>
+
+  </div>
+                    

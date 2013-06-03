@@ -1,4 +1,13 @@
 AppConcert::Application.routes.draw do
+  resources :typedocuments
+
+
+  resources :typeusers
+
+
+  resources :sexes
+
+
   resources :concerts
 
 
@@ -15,7 +24,8 @@ AppConcert::Application.routes.draw do
 
 
   resources :districts
-
+ 
+ # root :to => 'welcome#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,32 +1,42 @@
-<%= link_to "Conciertos UPC", users_path, :class => 'brand' %>
-<ul class="nav">
-  
+<%= link_to "Conciertos UPShe", users_path, :class => 'brand' %>
+<ul class="nav">  
     <li>
-    <%= link_to 'Search', users_path %>
+		<%= link_to users_path do %>
+	        <i class="icon-search"></i> Buscar Conciertos
+	    <% end %> 		
+    </li>    
+    <li>
+		<%= link_to 'Mis Conciertos', concerts_path %>
+    </li>   
+    <li>
+		<%= link_to 'Mis Grupos', groups_path %>
     </li>
     
     <li>
-    <%= link_to 'Concert', concerts_path %>
-    </li>
-   
-    <li>
-    <%= link_to 'Group', groups_path %>
+		<%= link_to 'Locales', places_path %>
     </li>
     
-      <li>
-      <%= link_to 'Place', places_path %>
-      </li>
-    
     <li>
-    <%= link_to 'Style', styles_path %>
+		<%= link_to 'Estilos', styles_path %>
     </li>
   
-  <li>
-    <%= link_to 'District', districts_path %>
+    <li>
+		<%= link_to 'Distritos', districts_path %>
     </li>
   
-  <li>
-    <%= link_to 'User', users_path %>
+	<li>
+		<%= link_to 'Usuarios', users_path %>
     </li>
-  
+	
+	<li>
+		<%= link_to 'Tipo de Usuario', typeusers_path %>
+    </li>
+	
+	<li>
+		<%= link_to 'Tipo de Documento', typedocuments_path %>
+    </li>
+	
+	<li>
+		<%= link_to 'Sexo', sexes_path %>
+    </li>
 </ul>

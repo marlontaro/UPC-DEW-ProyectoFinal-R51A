@@ -3,7 +3,7 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title">
-					<h5>Show</h5>
+					<h5>Mostrar</h5>
                  </div>
                 
                 <div class="widget-content">
@@ -12,7 +12,7 @@
 				<div class="form-horizontal"> 
 			    <div class="control-group">
 			      <span class="control-label">
-					Name
+					Nombre
   					 </span>
       			  <div class="controls" >
 					<span class="input-xlarge uneditable-input">
@@ -22,8 +22,10 @@
 		    </div>
 		    <div class="form-actions">
 
-		<%= link_to 'Edit', edit_district_path(@district), :class => 'btn btn-primary' %>
-<%= link_to 'Back', districts_path, :class => 'btn' %>
+			<%= link_to edit_district_path(@district), :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+                <% end %> 
+			<%= link_to 'Back', districts_path, :class => 'btn' %>
 	</div
 			
 			</div>
