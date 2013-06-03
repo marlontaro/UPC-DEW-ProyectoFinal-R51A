@@ -12,7 +12,7 @@
         <div class="form-horizontal"> 
 
           <div class="control-group">
-            <span class="control-label">Name</span>
+            <span class="control-label">Nombre</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
                 <%= @place.name %>
@@ -21,7 +21,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">Address</span>
+            <span class="control-label">Direccion</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
               <%= @place.address %>
@@ -30,7 +30,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">Phone</span>
+            <span class="control-label">Telefono</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
                 <%= @place.phone %>
@@ -39,7 +39,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">Image</span>
+            <span class="control-label">Imagen</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
                 <%= @place.image %>
@@ -48,7 +48,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">Longitude</span>
+            <span class="control-label">Longitud</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
                 <%= @place.longitude %>
@@ -57,7 +57,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">Latitude</span>
+            <span class="control-label">Latitud</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
               <%= @place.latitude %>
@@ -66,7 +66,7 @@
           </div>
 
           <div class="control-group">
-            <span class="control-label">District</span>
+            <span class="control-label">Distrito</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
               <%= @place.district.name %>
@@ -74,11 +74,12 @@
             </div>
           </div>
 
-  <div class="form-actions">
-<%= link_to 'Edit', edit_place_path(@place), :class => 'btn btn-primary' %>
-<%= link_to 'Back', places_path , :class => 'btn'%>
-      
-      </div>
+          <div class="form-actions">
+              <%= link_to edit_place_path(@place), :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+              <% end %> 
+              <%= link_to 'Volver', places_path , :class => 'btn'%>      
+          </div>
              </div>
           
          </div>

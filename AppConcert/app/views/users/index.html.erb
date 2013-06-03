@@ -28,13 +28,12 @@
                       </thead>
                     <% @users.each do |user| %>
                       <tr>
-                        <td><%= user.user_type %></td>
-                        <td><%= user.name %></td>
-                        <td><%= user.lastname %></td>
-                        <td><%= user.sex %></td>
-                        <td><%= user.document_type %></td>
-                        <td><%= user.document_number %></td>
-                        <td><%= user.email %></td> 
+                       
+                        <td><%= user.email %></td>
+                        <td><%= user.crypted_password %></td>                        
+                        <td> </td>
+                        <td> </td>
+                        <td></td> 
                         <td><%= link_to 'Show', user %></td>
                         <td><%= link_to 'Edit', edit_user_path(user) %></td>
                         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

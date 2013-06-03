@@ -1,4 +1,13 @@
 AppConcert::Application.routes.draw do
+ 
+
+  get "logout" => "home#destroy", :as => "logout"
+  get "signup" => "register#new", :as => "signup"
+  get "login" => "home#index", :as => "login"
+  get "search" => "search#new", :as => "search"
+
+  resources :sessions
+
   resources :typedocuments
 
 
@@ -22,10 +31,11 @@ AppConcert::Application.routes.draw do
 
   resources :styles
 
-
   resources :districts
- 
- # root :to => 'welcome#index'
+  
+  #resources :search
+
+  root :to => 'home#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

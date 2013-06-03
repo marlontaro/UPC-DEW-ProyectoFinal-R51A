@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :document_number, :document_type, :email, :foursquare_token, :lastname, :name, :password, :sex, :type
-  has_many :groups
+  # attr_accessible :title, :body
+  authenticates_with_sorcery!
+
+  attr_accessible :email, :password, :password_confirmation
+
+  validates_confirmation_of :password
+  validates_presence_of :password, :on => :create
+  validates_presence_of :email
+  validates_uniqueness_of :email
+
 end

@@ -1,13 +1,13 @@
-<%= link_to "Conciertos UPShe", users_path, :class => 'brand' %>
+<%= link_to "Conciertos UPShe", root_path, :class => 'brand' %>
 <ul class="nav">  
     <li>
-		<%= link_to users_path do %>
+		<%= link_to root_path do %>
 	        <i class="icon-search"></i> Buscar Conciertos
 	    <% end %> 		
-    </li>    
+    </li>
     <li>
 		<%= link_to 'Mis Conciertos', concerts_path %>
-    </li>   
+    </li>
     <li>
 		<%= link_to 'Mis Grupos', groups_path %>
     </li>
@@ -16,27 +16,52 @@
 		<%= link_to 'Locales', places_path %>
     </li>
     
-    <li>
-		<%= link_to 'Estilos', styles_path %>
-    </li>
-  
-    <li>
-		<%= link_to 'Distritos', districts_path %>
-    </li>
+    
   
 	<li>
 		<%= link_to 'Usuarios', users_path %>
     </li>
-	
-	<li>
-		<%= link_to 'Tipo de Usuario', typeusers_path %>
+	 
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="icon-cog"></i> Configuracion
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu"> 
+            <li>
+                <%= link_to 'Estilos', styles_path %>
+            </li>  
+            <li>
+                <%= link_to 'Distritos', districts_path %>
+            </li>
+            <li>
+                <%= link_to 'Tipo de Usuario', typeusers_path %>
+            </li>
+            
+            <li>
+                <%= link_to 'Tipo de Documento', typedocuments_path %>
+            </li>
+        	<li>
+        		<%= link_to 'Sexo', sexes_path %>
+            </li>
+      </ul>
     </li>
-	
-	<li>
-		<%= link_to 'Tipo de Documento', typedocuments_path %>
-    </li>
-	
-	<li>
-		<%= link_to 'Sexo', sexes_path %>
+
+</ul>
+
+<% if current_user %>
+      
+<ul class="nav pull-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-user"></i>  <%= current_user.email %>
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu"> 
+            <li>
+                <%= link_to "Log out", logout_path %>
+            </li>      
+        </ul>
     </li>
 </ul>
+<% end %>

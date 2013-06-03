@@ -12,89 +12,22 @@
   <% end %>
 
   <div class="form-horizontal"> 
+ 
 
-    <div class="control-group">
-      <span class="control-label">
-        <%= f.label :user_type %>
-      </span>
-      <div class="controls" >
-        <%= f.number_field :user_type %>
-      </div>
-    </div>
+     <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+ 
 
-    <div class="control-group">
-      <span class="control-label">
-      <%= f.label :name %>
-      </span>
-      <div class="controls" >
-      <%= f.text_field :name %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">
-      <%= f.label :lastname %>  
-      </span>
-      <div class="controls" >
-      <%= f.text_field :lastname %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">
-      <%= f.label :sex %> 
-      </span>
-      <div class="controls" >
-        <%= f.number_field :sex %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">
-        <%= f.label :document_type %>
-      </span>
-      <div class="controls" >
-        <%= f.number_field :document_type %>
-      </div>
-    </div>
-
-     <div class="control-group">
-      <span class="control-label">
-        <%= f.label :document_number %>
-      </span>
-      <div class="controls" >
-        <%= f.text_field :document_number %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <span class="control-label">
-        <%= f.label :email %>
-       </span>
-      <div class="controls" >
-        <%= f.text_field :email %>
-      </div>
-    </div>
-
-
-    <div class="control-group">
-      <span class="control-label">
-        <%= f.label :foursquare_token %>
-      </span>
-      <div class="controls" >
-        <%= f.text_field :foursquare_token %>
-      </div>
-    </div>
-
-
-    <div class="control-group">
-      <span class="control-label">
-        <%= f.label :password %>
-      </span>
-      <div class="controls" >
-        <%= f.text_field :password %>
-      </div>
-    </div>
 
   <div class="form-actions">
     <%= f.submit 'Save', :class => 'btn btn-primary' %>

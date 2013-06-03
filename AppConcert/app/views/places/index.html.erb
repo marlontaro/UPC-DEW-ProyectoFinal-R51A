@@ -2,10 +2,12 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title">
-                  <h5>Listing places</h5>
+                  <h5>Locales</h5>
                   <div class="buttons">  
-                    <%= link_to 'New Place', new_place_path, :class => 'btn btn-primary' %>
-                      </div>
+                      <%= link_to new_place_path, :class => 'btn btn-primary' do %>
+                        <i class="icon-plus icon-white"></i> Agregar Local
+                      <% end %>    
+                  </div>
                 </div>
                 
                 <div class="widget-content">
@@ -14,10 +16,10 @@
                     <table class="table table-hover" width="800px">
                       <thead>
                       <tr>
-                        <th width="150px">Name</th>
-                        <th width="100px">Address</th>
-                        <th width="100px">Phone</th>
-                        <th width="150px">District</th>
+                        <th width="150px">Nombre</th>
+                        <th width="100px">Direcion</th>
+                        <th width="100px">Telefono</th>
+                        <th width="150px">Distrito</th>
                         <th width="20px"></th>
                         <th width="20px"></th>
                         <th width="20px"></th>
@@ -29,9 +31,23 @@
                         <td><%= place.address %></td>
                         <td><%= place.phone %></td>                       
                         <td><%= place.district.name %></td>
-                        <td><%= link_to 'Show', place %></td>
-                        <td><%= link_to 'Edit', edit_place_path(place) %></td>
-                        <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td>
+                            <%= link_to place , :title => "Mostrar"  do %>
+                                  <i class="icon-align-justify"></i>
+                            <% end %>
+                        </td>
+                        
+                        <td>
+                            <%= link_to  edit_place_path(place) , :title => "Editar"  do %>
+                                  <i class="icon-pencil"></i>
+                            <% end %> 
+                        </td>
+
+                        <td>
+                            <%= link_to place, method: :delete, data: { confirm: '¿Estas seguro?' }, :title => "Eliminar"  do %>
+                                  <i class="icon-remove"></i>
+                              <% end %> 
+                        </td>
                       </tr>
                     <% end %>
                     </table>
