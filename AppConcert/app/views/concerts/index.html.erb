@@ -1,0 +1,48 @@
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                  <h5>Listing concerts</h5>
+                  <div class="buttons">  
+                    <%= link_to 'New Concert', new_concert_path, :class => 'btn btn-primary' %>
+                   </div>
+                </div>
+                
+                <div class="widget-content">
+                  
+                   <div style="padding-top:10px;padding-left:10px">
+                    <table class="table table-hover" width="700px">
+                         <thead>
+                      <tr>
+                        <th width="80px">Date</th>    
+                        <th width="100px">Created</th>
+                        <th width="100px">Place</th>
+                        <th width="100px">Group</th>
+                        <th width="20px"></th>
+                        <th width="20px"></th>
+                        <th width="20px"></th>
+                      </tr>
+                        </thead>
+                    <% @concerts.each do |concert| %>
+                      <tr>
+                        <td><%= concert.date %></td>     
+                        <td><%= concert.user.name %></td>
+                        <td><%= concert.place.name %></td>
+                        <td><%= concert.group.name %></td>
+                        <td><%= link_to 'Show', concert %></td>
+                        <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
+                        <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                    </table>
+
+ 
+  </div>
+
+                </div>
+             </div>
+          
+         </div>
+
+  </div>

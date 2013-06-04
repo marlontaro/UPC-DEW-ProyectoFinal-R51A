@@ -1,0 +1,50 @@
+<%= form_for(@concert) do |f| %>
+  <% if @concert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
+
+      <ul>
+      <% @concert.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="form-horizontal"> 
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.time_select :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br />
+    <%= f.time_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.number_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.collection_select :user_id, User.all, :id, :name, :prompt => true %>    
+  </div>
+  <div class="field">
+    <%= f.label :place %><br />
+    <%= f.collection_select :place_id, Place.all, :id, :name, :prompt => true %>   
+     
+  </div>
+  <div class="field">
+    <%= f.label :group %><br />
+    <%= f.collection_select :group_id, Group.all, :id, :name, :prompt => true %>   
+     
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Save', :class => 'btn btn-primary'   %>
+  </div>
+
+     </div>
+<% end %>

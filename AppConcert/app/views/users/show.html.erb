@@ -1,0 +1,65 @@
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+          <h5>Show</h5>
+                 </div>
+                
+                <div class="widget-content"><p id="notice"><%= notice %></p>
+<div class="form-horizontal"> 
+<p>
+  <b>Type:</b>
+  <%= @user.user_type %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @user.sex %>
+</p>
+
+<p>
+  <b>Document type:</b>
+  <%= @user.document_type %>
+</p>
+
+<p>
+  <b>Document number:</b>
+  <%= @user.document_number %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Foursquare token:</b>
+  <%= @user.foursquare_token %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @user.password %>
+</p>
+
+ <div class="form-actions">
+
+<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-primary'  %>
+<%= link_to 'Back', users_path, :class => 'btn'  %>
+ </div>
+ </div>
+          
+         </div>
+
+  </div>    

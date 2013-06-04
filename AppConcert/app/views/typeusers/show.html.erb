@@ -1,0 +1,31 @@
+ <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+					<h5>Mostrar Tipo de Usuario</h5>
+                 </div>
+                
+                <div class="widget-content">
+					<p id="notice"><%= notice %></p>
+
+				<div class="form-horizontal"> 
+			      <div class="control-group">
+			      <span class="control-label">Name</span>
+      			  <div class="controls" >
+					<span class="input-xlarge uneditable-input">
+  					<%= @typeuser.name %>
+					</span>	
+			   </div>
+		    </div>
+		    <div class="form-actions">
+				<%= link_to edit_typeuser_path(@typeuser) , :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+                <% end %> 
+				<%= link_to 'Volver', typeusers_path , :class => 'btn' %>
+				</div>
+             </div>
+          
+         </div>
+
+  </div>		

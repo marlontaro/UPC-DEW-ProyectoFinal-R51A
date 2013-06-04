@@ -1,0 +1,86 @@
+<%= form_for(@place) do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% @place.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-horizontal"> 
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :name , "Nombre" %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :address, "Direccion" %>   
+      </span>
+      <div class="controls" >
+        <%= f.text_field :address %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">    
+        <%= f.label :phone, "Telefono" %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :phone %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :image, "Imagen" %> 
+      </span>
+      <div class="controls" >
+        <%= f.text_field :image %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :longitude, "Longitud" %> 
+      </span>
+      <div class="controls" >
+        <%= f.text_field :longitude %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">   
+        <%= f.label :latitude, "Latitud" %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :latitude %>
+      </div>
+    </div> 
+    
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :district, "Distrito" %> 
+      </span>
+      <div class="controls" >
+        <%= f.collection_select :district_id, District.all, :id, :name, :prompt => true %>    
+      </div>
+    </div>
+
+  <div class="form-actions">
+      <%= button_tag( type: 'submit', class: "btn btn-primary") do %>
+        <i class="icon-ok icon-white"></i> Guardar
+      <% end %>
+  </div>
+
+  </div>
+<% end %>

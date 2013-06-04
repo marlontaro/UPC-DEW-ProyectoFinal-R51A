@@ -1,0 +1,12 @@
+Investigar
+		-	Foursquare Api Rails (Luis)
+		-	Google maps api rails (manuel)
+		-	Heroku para rails (gilberto)
+		-  	Bootstrap api rails (marlon)
+		
+Foro:			
+		- Dudas asistencia, local capacidad (gilberto)
+
+Prototipos
+		- Pantallas
+		

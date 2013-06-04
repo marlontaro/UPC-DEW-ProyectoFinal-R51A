@@ -1,0 +1,28 @@
+<%= form_for(@district) do |f| %>
+  <% if @district.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@district.errors.count, "error") %> prohibited this district from being saved:</h2>
+
+      <ul>
+      <% @district.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-horizontal"> 
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :name , "Nombre" %>
+      </span>
+      <div class="controls" >
+        <%= f.text_field :name %>
+      </div>
+      </div>
+    <div class="form-actions">
+      <%= button_tag( type: 'submit', class: "btn btn-primary") do %>
+        <i class="icon-ok icon-white"></i> Guardar
+      <% end %>
+  </div>
+<% end %>

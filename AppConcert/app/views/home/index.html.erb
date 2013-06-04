@@ -1,0 +1,90 @@
+   <% if flash[:alert] %>
+    <div class="alert alert-error">
+          <%= flash[:alert] %>
+    </div>
+  <% end %>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+        <%= flash[:notice] %>
+    </div>
+  <% end %>
+  
+  <div class="row-fluid">
+       
+        <div class="span6">
+            <div class="widget-box">
+                <div class="widget-title">
+                	<h5>Bienvenidos a Conciertos UPShe</h5>                    
+ 				</div>
+                
+                <div class="widget-content">
+
+				 <div class="row-fluid">
+				       
+					<div class="span12">
+							Logo
+				    </div>
+
+				  </div> 	
+				</div>
+             </div>
+          
+         </div>
+
+
+          <div class="span6">
+            <div class="widget-box">
+                <div class="widget-title">
+                	<h5>Inicie Sesion</h5>                    
+ 				</div>
+                
+                <div class="widget-content">
+
+				 <div class="row-fluid">
+					
+					<div class="span12">
+						
+
+						<%= form_tag sessions_path do %>
+						 <div class="form-horizontal"> 
+
+						  <div class="control-group">
+						      <span class="control-label">
+						    	<%= label_tag :email %>
+						      </span>
+      						  <div class="controls" >
+						    	<%= text_field_tag :email, params[:email] %>
+						  	  </div>
+						  </div>
+
+						  <div class="control-group">
+						      <span class="control-label">
+						      <%= label_tag :password %>
+						      </span>
+      						  <div class="controls" >
+						      <%= password_field_tag :password %>
+						     </div>
+						  </div>
+						 
+						  <div class="form-actions">    
+						  	<%= button_tag( type: 'submit', class: "btn btn-primary") do %>
+					        	<i class="icon-user icon-white"></i> Ingresar
+					      	<% end %>
+					      	<%= link_to  signup_path, :class => 'btn btn-primary'  do %>
+                     		<i class="icon-pencil icon-white"></i> Registrarse
+                			<% end %> 
+					      	 
+						  </div>
+						</div>
+						<% end %>
+
+				    </div>
+
+
+				  </div> 	
+				</div>
+             </div>
+          
+         </div>
+
+  </div>		

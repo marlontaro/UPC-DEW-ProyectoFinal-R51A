@@ -1,0 +1,9 @@
+<%= simple_form_for(@musical_group) do |f| %>
+<%= f.label :musical_style_id %><br />
+<%= f.collection_select :musical_style_id, MusicalStyle.all, :id, :name, :prompt => true %> <br />
+<%= f.label :name %><br />
+<%= f.text_field :name %><br />
+<%= f.label :imagen %><br />
+<%= f.text_field :imagen %><br />
+<%= f.submit %>
+<% end %>
