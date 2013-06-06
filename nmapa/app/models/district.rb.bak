@@ -1,0 +1,26 @@
+class District < ActiveRecord::Base
+  attr_accessible :address, :gmaps, :latitude, :longitude, :name
+
+acts_as_gmappable
+
+def gmaps4rails_address
+ address
+end
+
+  def gmaps4rails_infowindow
+    "<h1 STYLE='font: Verdana; font-size:12px}'>#{name}</h1><h2 STYLE='font: Verdana; font-size:12px}'>#{address}</h2><img src='/assets/#{id}.png'  height='100' width='200'>"
+  end
+
+  def gmaps4rails_marker_picture
+  {
+       "picture" => "/assets/#{id}.png",
+       "width"   => 30,
+       "height"  => 30
+  }
+  end
+
+  def gmaps4rails_sidebar
+    name
+  end
+
+end

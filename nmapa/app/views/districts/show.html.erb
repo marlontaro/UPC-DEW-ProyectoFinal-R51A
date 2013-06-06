@@ -1,0 +1,56 @@
+<script type="text/javascript">
+
+    var map;
+    $(document).ready(function(){
+        map = new GMaps({
+            el: '#map',
+            lat: <%= @district.latitude  %>,
+            lng: <%= @district.longitude %>
+        });
+
+        map.addMarker({
+            lat: <%= @district.latitude  %>,
+            lng: <%= @district.longitude %>,
+            title: '<%= @district.name %>',
+            icon:  '/assets/pin48.png' ,
+            infoWindow: {
+                content: '<b><%= @district.name %></b><br><%= @district.address %><br><img src="/assets/<%= @district.id %>.png" height="100" width="100%">'
+            }
+        });
+
+    });
+
+
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @district.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @district.address %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @district.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @district.latitude %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @district.gmaps %>
+</p>
+
+<div id="map"></div>
+
+<%= link_to 'Edit', edit_district_path(@district) %> |
+<%= link_to 'Back', districts_path %>

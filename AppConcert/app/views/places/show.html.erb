@@ -1,4 +1,29 @@
-  <div class="row-fluid">
+<script type="text/javascript">
+
+    var map;
+    $(document).ready(function(){
+        map = new GMaps({
+            el: '#map',
+            lat: <%= @place.latitude  %>,
+            lng: <%= @place.longitude %>
+        });
+
+        map.addMarker({
+            lat: <%= @place.latitude  %>,
+            lng: <%= @place.longitude %>,
+            title: '<%= @place.name %>',
+            icon:  '/assets/pin48.png' ,
+            infoWindow: {
+                content: '<b><%= @place.name %></b><br><%= @place.address %><br><img src="/assets/<%= @place.id %>.png" height="100" width="100%">'
+            }
+        });
+
+    });
+
+
+</script>
+
+<div class="row-fluid">
        
         <div class="span12">
             <div class="widget-box">
@@ -66,6 +91,16 @@
           </div>
 
           <div class="control-group">
+            <span class="control-label">gmaps</span>
+            <div class="controls" >
+              <span class="input-xlarge uneditable-input">
+              <%= @place.gmaps %>
+             </span>
+            </div>
+          </div>
+
+
+          <div class="control-group">
             <span class="control-label">Distrito</span>
             <div class="controls" >
               <span class="input-xlarge uneditable-input">
@@ -83,5 +118,5 @@
              </div>
           
          </div>
-
+              <div id="map"></div>
   </div>    
