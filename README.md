@@ -11,3 +11,6 @@ Github:
 		- Manuel Vasquez [ https://github.com/ManuVVG ]
 		- Luis Cahua [ https://github.com/LuisCahua ]
 		- Wilde Sifuentes [ https://github.com/wsifuentes ]
+
+		
+Documento de Ponencia https://docs.google.com/a/soenperu.com/spreadsheet/ccc?key=0Ap0b5EE5m0wcdDY5VkRsVnlLT3dmbFBzNmNQRGhkVnc#gid=0
