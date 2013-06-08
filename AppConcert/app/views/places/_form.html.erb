@@ -11,6 +11,86 @@
     </div>
   <% end %>
 
+    <script type="text/javascript">
+        // global "map" variable
+        var map = null;
+        var marker = null;
+
+        var infowindow = new google.maps.InfoWindow(
+                {
+                    size: new google.maps.Size(100,50)
+                });
+
+        // A function to create the marker and set up the event window function
+        function createMarker(latlng, name, html) {
+            var contentString = html;
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                icon: '/assets/pin24.png',
+                zIndex: Math.round(latlng.lat()*-100000)<<5
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent(contentString);
+                infowindow.open(map,marker);
+            });
+            google.maps.event.trigger(marker, 'click');
+            return marker;
+        }
+
+        function obtenerlatlng(latlng,op){
+            switch(op) {
+                case 1:
+                    return latlng.lat();
+                    break;
+                case 2:
+                    return latlng.lng();
+                    break;
+                default:
+                    0
+            }
+        }
+
+        function openlatlng(latlng){
+            return "<b>Location</b><br><div>Lng: "+latlng.lng()+"</div><div>Lat : "+latlng.lat()+"</div>";
+        }
+
+        function initialize() {
+            // create the map
+            var myOptions = {
+                zoom: 15,
+                center: new google.maps.LatLng(-12.05030050832357,-77.06191185861826),
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            map = new google.maps.Map(document.getElementById("map_canvas"),
+                    myOptions);
+
+            google.maps.event.addListener(map, 'click', function() {
+                infowindow.close();
+            });
+
+            google.maps.event.addListener(map, 'click', function(event) {
+                //call function to create marker
+                if (marker) {
+                    marker.setMap(null);
+                    marker = null;
+                }
+                //marker.setMap(map);
+                //infoWindow.open(map, marker);
+
+                marker = createMarker(event.latLng, "name", openlatlng(event.latLng));
+                document.getElementById('place_latitude').value = obtenerlatlng(event.latLng,1);
+                document.getElementById('place_longitude').value  = obtenerlatlng(event.latLng,2);
+            });
+        }
+
+    </script>
+    <script type="text/javascript">window.onload = function(){ initialize()} </script>
+
     <div class="form-horizontal"> 
 
     <div class="control-group">
@@ -72,7 +152,7 @@
         <%= f.label :gmaps, "Gmaps" %>
       </span>
         <div class="controls" >
-          <%= f.text_field :gmaps %>
+          <%= f.check_box :gmaps, {:checked=>true} %>
         </div>
       </div>
 
@@ -92,5 +172,16 @@
       <% end %>
   </div>
 
+      <table>
+        <tr>
+          <td>
+            <div id="map_canvas" style="width: 550px; height: 450px">
+            </div>
+          </td>
+        </tr>
+      </table>
+
+
   </div>
+
 <% end %>

@@ -10,37 +10,35 @@
       </ul>
     </div>
   <% end %>
- <div class="form-horizontal"> 
+ <div class="form-horizontal">
 
+   <div class="field">
+     <%= f.label :place %>
+     <%= f.collection_select :place_id, Place.all, :id, :name, :prompt => true %>
+   </div>
+   <div class="field">
+     <%= f.label :group %>
+     <%= f.collection_select :group_id, Group.all, :id, :name, :prompt => true %>
+   </div>
+   <div class="field">
+     <%= f.label :user %>
+     <%= f.collection_select :user_id, User.all, :id, :name, :prompt => true %>
+   </div>
   <div class="field">
-    <%= f.label :date %><br />
+    <%= f.label :date %>
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :start_time %><br />
+    <%= f.label :start_time %>
     <%= f.time_select :start_time %>
   </div>
   <div class="field">
-    <%= f.label :end_time %><br />
+    <%= f.label :end_time %>
     <%= f.time_select :end_time %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
-    <%= f.number_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.collection_select :user_id, User.all, :id, :name, :prompt => true %>    
-  </div>
-  <div class="field">
-    <%= f.label :place %><br />
-    <%= f.collection_select :place_id, Place.all, :id, :name, :prompt => true %>   
-     
-  </div>
-  <div class="field">
-    <%= f.label :group %><br />
-    <%= f.collection_select :group_id, Group.all, :id, :name, :prompt => true %>   
-     
+    <%= f.label :state %>
+    <%= f.check_box :state, {:checked=>true} %>
   </div>
   <div class="form-actions">
     <%= f.submit 'Save', :class => 'btn btn-primary'   %>

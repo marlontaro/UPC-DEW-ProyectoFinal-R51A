@@ -2,7 +2,6 @@ class Place < ActiveRecord::Base
   attr_accessible :address, :gmaps, :image, :latitude, :longitude, :name, :phone, :district_id
 
   belongs_to :district
-
   validates :name, :address, :phone, :district_id,  :presence => true
 
   acts_as_gmappable
