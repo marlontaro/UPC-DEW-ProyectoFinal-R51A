@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # attr_accessible :title, :body
+
   authenticates_with_sorcery!
 
   attr_accessible :email, :password, :password_confirmation
@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  def registration
+
+  end
+
+  def signup
+  end 
 end

@@ -1,6 +1,21 @@
 class UsersController < ApplicationController
+
+  def signup
+        @user = User.new
+  end 
+
+  def registration
+     @user = User.new(params[:user])
+    if @user.save
+      redirect_to root_path, :notice => "Signed up!"
+    else
+      render :signup
+    end
+  end 
+
   # GET /users
   # GET /users.json
+
   def index
     @users = User.all
 
