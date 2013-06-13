@@ -19,8 +19,7 @@
                       <thead>
                       <tr>
                         <th width="20px">Tipo</th>
-                        <th width="150px">Nombre</th>
-                        <th width="150px">Apelidos</th>
+                        <th width="150px">Persona</th>                     
                         <th width="20px">Sexo</th>
                         <th width="120px">Tipo Documento</th>
                         <th width="150px">N° Documento</th>
@@ -34,8 +33,7 @@
                       <tr>
                        
                         <td><%= user.typeuser.name %></td>
-                        <td><%= user.name %></td>
-                        <td><%= user.lastname %></td>
+                        <td><%= user.name %></td> 
                         <td><%= Sex.find(user.sexes_id).name %></td>             
                         <td><%= user.typedocument.name %></td>
                         <td><%= user.document %></td>

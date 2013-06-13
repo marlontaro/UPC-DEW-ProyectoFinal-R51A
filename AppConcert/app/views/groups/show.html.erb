@@ -25,6 +25,14 @@
   <%= @group.style.name %>
 </p>
 
+<strong>Integrantes:</strong>
+<ul>
+<% for user in @group.users %>
+  <li><%= user.name %> <%= user.lastname %></li>
+<% end %>
+</ul>
+
+
 <div class="form-actions">
 <%= link_to 'Edit', edit_group_path(@group), :class => 'btn btn-primary' %> |
 <%= link_to 'Back', groups_path, :class => 'btn' %>

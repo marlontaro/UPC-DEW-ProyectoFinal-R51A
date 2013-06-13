@@ -30,11 +30,14 @@ class UsersController < ApplicationController
   def index
     if current_user
 
+       # @users = User.select("id, name + ' ' + lastname as name")
       @users = User.all
+
 
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @users }
+        format.json { render :json => User.where("name like ?", "%#{params[:q]}%").as_json }
+
       end
 
     else
