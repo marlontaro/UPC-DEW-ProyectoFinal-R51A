@@ -1,13 +1,24 @@
 class TypeusersController < ApplicationController
+  
+  before_filter :require_login, :only => :secret
+
   # GET /typeusers
   # GET /typeusers.json
   def index
-    @typeusers = Typeuser.all
+    
+    if current_user
+      @typeusers = Typeuser.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @typeusers }
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @typeusers }
+      end
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"
+    
+
+    end 
   end
 
   # GET /typeusers/1

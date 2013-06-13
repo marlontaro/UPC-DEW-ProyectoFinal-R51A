@@ -2,12 +2,19 @@ class DistrictsController < ApplicationController
   # GET /districts
   # GET /districts.json
   def index
-    @districts = District.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @districts }
-    end
+    if current_user
+      @districts = District.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @districts }
+      end
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"   
+
+    end 
   end
 
   # GET /districts/1

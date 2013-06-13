@@ -3,60 +3,84 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title">
-          <h5>Show</h5>
+          <h5>Mostrar Usuario</h5>
                  </div>
                 
-                <div class="widget-content"><p id="notice"><%= notice %></p>
-<div class="form-horizontal"> 
-<p>
-  <b>Type:</b>
-  <%= @user.user_type %>
-</p>
+          <div class="widget-content"><p id="notice"><%= notice %></p>
+        <div class="form-horizontal"> 
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+        <div class="control-group">
+            <span class="control-label">Tipo</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.typeuser.name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
+       
+ <div class="control-group">
+            <span class="control-label">Nombre</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.name %>
+            </span> 
+         </div>
+        </div>
+        
+      <div class="control-group">
+            <span class="control-label">Apellidos</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.lastname %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Sex:</b>
-  <%= @user.sex %>
-</p>
+  <div class="control-group">
+            <span class="control-label">Sexo</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= Sex.find(@user.sexes_id).name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Document type:</b>
-  <%= @user.document_type %>
-</p>
+  <div class="control-group">
+            <span class="control-label">Tipo Documento</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.typedocument.name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Document number:</b>
-  <%= @user.document_number %>
-</p>
+ <div class="control-group">
+            <span class="control-label">N° Documento</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.document %>
+            </span> 
+         </div>
+        </div>
+ <div class="control-group">
+            <span class="control-label">Correo</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @user.email  %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Foursquare token:</b>
-  <%= @user.foursquare_token %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
 
  <div class="form-actions">
 
-<%= link_to 'Edit', edit_user_path(@user), :class => 'btn btn-primary'  %>
-<%= link_to 'Back', users_path, :class => 'btn'  %>
+ 
+
+  <%= link_to edit_user_path(@user) , :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+                <% end %> 
+        <%= link_to 'Volver', users_path , :class => 'btn' %>
  </div>
  </div>
           

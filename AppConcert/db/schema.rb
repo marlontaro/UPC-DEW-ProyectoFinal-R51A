@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130606041251) do
+ActiveRecord::Schema.define(:version => 20130613022416) do
 
   create_table "assitances", :force => true do |t|
     t.integer  "concert_id"
@@ -121,6 +121,12 @@ ActiveRecord::Schema.define(:version => 20130606041251) do
     t.string   "salt"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "typeuser_id"
+    t.string   "name"
+    t.string   "lastname"
+    t.integer  "typedocument_id"
+    t.string   "document"
+    t.integer  "sexes_id"
   end
 
 end

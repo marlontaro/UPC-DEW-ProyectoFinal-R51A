@@ -2,12 +2,20 @@ class TypedocumentsController < ApplicationController
   # GET /typedocuments
   # GET /typedocuments.json
   def index
-    @typedocuments = Typedocument.all
+    if current_user
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @typedocuments }
-    end
+      @typedocuments = Typedocument.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @typedocuments }
+      end
+
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"
+    end 
+    
   end
 
   # GET /typedocuments/1

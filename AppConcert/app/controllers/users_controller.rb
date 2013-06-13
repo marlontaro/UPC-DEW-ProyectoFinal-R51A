@@ -1,13 +1,24 @@
 class UsersController < ApplicationController
+  
+  before_filter :require_login, :only => :secret
 
   def signup
         @user = User.new
   end 
 
   def registration
-     @user = User.new(params[:user])
+    @user = User.new(params[:user]) 
+    
+    #recuperar variables 
+
+    @mail = @user.email
+    @pass = @user.password
+
     if @user.save
-      redirect_to root_path, :notice => "Signed up!"
+      # login
+        user = login(@mail,@pass)
+
+      redirect_back_or_to root_path, :notice => "Se registro satisfactoriamente"
     else
       render :signup
     end
@@ -17,12 +28,21 @@ class UsersController < ApplicationController
   # GET /users.json
 
   def index
-    @users = User.all
+    if current_user
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
+      @users = User.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users }
+      end
+
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"    
+
+    end 
+    
   end
 
   # GET /users/1

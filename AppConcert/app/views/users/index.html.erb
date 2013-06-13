@@ -5,7 +5,11 @@
                 <div class="widget-title">
                   <h5>Listing users</h5>
                   <div class="buttons">  
-                    <%= link_to 'New User', new_user_path, :class => 'btn btn-primary'  %>
+                     <%= link_to new_user_path, :class => 'btn btn-primary' do %>
+                        <i class="icon-plus icon-white"></i> Agregar Usuario
+                    <% end %>    
+
+                    
                   </div>
                 </div>
                 
@@ -14,13 +18,13 @@
                     <table class="table table-hover" width="900px">
                       <thead>
                       <tr>
-                        <th width="20px">Type</th>
-                        <th width="150px">Name</th>
-                        <th width="150px">Lastname</th>
-                        <th width="20px">Sex</th>
-                        <th width="120px">Document type</th>
-                        <th width="150px">Document number</th>
-                        <th width="100px">Email</th>                       
+                        <th width="20px">Tipo</th>
+                        <th width="150px">Nombre</th>
+                        <th width="150px">Apelidos</th>
+                        <th width="20px">Sexo</th>
+                        <th width="120px">Tipo Documento</th>
+                        <th width="150px">N° Documento</th>
+                        <th width="100px">Correo</th>                       
                         <th width="20px"></th>
                         <th width="20px"></th>
                         <th width="20px"></th>
@@ -29,14 +33,30 @@
                     <% @users.each do |user| %>
                       <tr>
                        
+                        <td><%= user.typeuser.name %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.lastname %></td>
+                        <td><%= Sex.find(user.sexes_id).name %></td>             
+                        <td><%= user.typedocument.name %></td>
+                        <td><%= user.document %></td>
                         <td><%= user.email %></td>
-                        <td><%= user.crypted_password %></td>                        
-                        <td> </td>
-                        <td> </td>
-                        <td></td> 
-                        <td><%= link_to 'Show', user %></td>
-                        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-                        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                         <td>
+                            <%= link_to user , :title => "Mostrar"  do %>
+                                  <i class="icon-align-justify"></i>
+                            <% end %> 
+                      </td>
+                      <td>
+                          <%= link_to edit_user_path(user), :title => "Editar"  do %>
+                                  <i class="icon-pencil"></i>
+                          <% end %> 
+                      </td>
+                      <td>
+                          <%= link_to user, method: :delete, data: { confirm:'¿Estas seguro?' }, :title => "Eliminar" do %>
+                                  <i class="icon-remove"></i>
+                          <% end %> 
+                      </td>
+
+                        
                       </tr>
                     <% end %>
                     </table>

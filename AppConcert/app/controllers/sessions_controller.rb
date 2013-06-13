@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
   def create
     user = login(params[:email], params[:password])
     if user
-      redirect_to search_url, :notice => "Logged in!"
+      redirect_to search_url, :notice => "Ingreso!"
     else
-      flash.now.alert = "Email or password was invalid"
-      redirect_back_or_to root_url , :alert => "Email or password was invalid"
+      flash.now.alert = "Correo o Contrasenia invalida"
+      redirect_back_or_to root_url , :alert => "Correo o Contrasenia invalida"
       
       #render 'login'
     end
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   
   def destroy
     logout
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url, :notice => "Se desconecto"
   end
 end

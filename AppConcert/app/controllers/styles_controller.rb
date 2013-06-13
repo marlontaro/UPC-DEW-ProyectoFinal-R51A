@@ -2,12 +2,20 @@ class StylesController < ApplicationController
   # GET /styles
   # GET /styles.json
   def index
-    @styles = Style.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @styles }
-    end
+    if current_user
+      
+      @styles = Style.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @styles }
+      end
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"    
+
+    end 
   end
 
   # GET /styles/1

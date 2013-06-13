@@ -1,7 +1,7 @@
 <%= form_for(@user, :url => "registration") do |f| %>
   <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
+    <div class="alert alert-error">
+      <b>Oh Error!</b>
       <ul>
         <% for message in @user.errors.full_messages %>
           <li><%= message %></li>
@@ -9,17 +9,94 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit "Registrarse" %></div>
+
+  <div class="form-horizontal"> 
+
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :typeuser_id, "Tipo Usuario" %> 
+      </span>
+      <div class="controls" >
+        <%= f.collection_select :typeuser_id, Typeuser.where("id <> 1"), :id, :name, :prompt => true %>    
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :name, "Nombre" %>
+      </span>
+      <div class="controls" > 
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :lastname, "Apellido" %>
+      </span>
+      <div class="controls" > 
+        <%= f.text_field :lastname %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :sexes_id, "Sexo" %> 
+      </span>
+      <div class="controls" >
+        <%= f.collection_select :sexes_id, Sex.all, :id, :name, :prompt => true %>    
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :sexes_id, "Tipo Documento" %> 
+      </span>
+      <div class="controls" >
+        <%= f.collection_select :typedocument_id, Typedocument.all, :id, :name, :prompt => true %>    
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :document, "Nro Documento" %>
+      </span>
+      <div class="controls" > 
+        <%= f.text_field :document %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :email, "Correo" %>
+      </span>
+      <div class="controls" > 
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :password, "Contraseñia" %>
+      </span>
+      <div class="controls" >       
+        <%= f.password_field :password %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">
+        <%= f.label :password_confirmation %>
+      </span>
+      <div class="controls" > 
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+
+     <div class="form-actions">
+       <%= button_tag( type: 'submit', class: "btn btn-primary") do %>
+        <i class="icon-ok icon-white"></i> Unete!
+      <% end %>      
+    </div>
 <% end %>

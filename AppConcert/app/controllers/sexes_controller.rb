@@ -2,12 +2,20 @@ class SexesController < ApplicationController
   # GET /sexes
   # GET /sexes.json
   def index
-    @sexes = Sex.all
+    if current_user
+      @sexes = Sex.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @sexes }
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @sexes }
+      end
+
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"   
+
+    end 
+    
   end
 
   # GET /sexes/1

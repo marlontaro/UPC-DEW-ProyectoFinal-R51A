@@ -2,13 +2,21 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.json
   def index
-    @concerts = Concert.all
-    @json = Concert.all.to_gmaps4rails
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @concerts }
-    end
+    if current_user
+      @concerts = Concert.all
+      @json = Concert.all.to_gmaps4rails
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @concerts }
+      end
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"   
+
+    end 
+    
   end
 
   # GET /concerts/1

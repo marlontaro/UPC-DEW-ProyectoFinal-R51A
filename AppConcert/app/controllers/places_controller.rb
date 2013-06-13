@@ -2,13 +2,26 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
-    @json = Place.all.to_gmaps4rails
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @places }
-    end
+    if current_user
+        
+      
+
+      @places = Place.all
+      @json = Place.all.to_gmaps4rails
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @places }
+      end
+
+    else
+
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"
+    
+
+    end 
+
   end
 
   # GET /places/1

@@ -2,12 +2,21 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @groups }
-    end
+    if current_user
+      @groups = Group.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @groups }
+      end
+      
+    else
+    
+      redirect_back_or_to root_url, :notice => "Inicie sesion!"   
+    
+    end 
+
   end
 
   # GET /groups/1
