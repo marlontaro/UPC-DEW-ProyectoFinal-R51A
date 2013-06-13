@@ -3,39 +3,65 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title">
-					<h5>Show</h5>
+					<h5>Mostrar</h5>
                  </div>
                 
                 <div class="widget-content">
 
                 	<p id="notice"><%= notice %></p>
 <div class="form-horizontal"> 
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
 
-<p>
-  <b>Image:</b>
-  <%= @group.image %>
-</p>
-
-<p>
-  <b>Style:</b>
-  <%= @group.style.name %>
-</p>
+          <div class="control-group">
+            <span class="control-label">
+          Nombre
+             </span>
+              <div class="controls" >
+          <span class="input-xlarge uneditable-input">
+            <%= @group.name %>
+            </span> 
+         </div>
+        </div>
+  <div class="control-group">
+            <span class="control-label">
+          Imagen
+             </span>
+              <div class="controls" >
+          <span class="input-xlarge uneditable-input">
+            <%= @group.image %>
+            </span> 
+         </div>
+        </div>
+ 
+   <div class="control-group">
+            <span class="control-label">
+          Estilo
+             </span>
+              <div class="controls" >
+          <span class="input-xlarge uneditable-input">
+            <%= @group.style.name %>
+            </span> 
+         </div>
+        </div>
+ 
+ 
 
 <strong>Integrantes:</strong>
+<hr/>
+<div style="padding-left:130px">
 <ul>
 <% for user in @group.users %>
   <li><%= user.name %> <%= user.lastname %></li>
 <% end %>
 </ul>
+</div>
 
 
 <div class="form-actions">
-<%= link_to 'Edit', edit_group_path(@group), :class => 'btn btn-primary' %> |
-<%= link_to 'Back', groups_path, :class => 'btn' %>
+ 
+<%= link_to edit_group_path(@group), :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+                <% end %> 
+      <%= link_to 'Volver', groups_path, :class => 'btn' %>
 </div>
 
  </div>
