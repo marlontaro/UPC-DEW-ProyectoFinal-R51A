@@ -5,7 +5,7 @@ class ConcertsController < ApplicationController
 
     if current_user
       @concerts = Concert.all
-      @json = Concert.all.to_gmaps4rails
+      #@json = Concert.all.to_gmaps4rails
 
       respond_to do |format|
         format.html # index.html.erb

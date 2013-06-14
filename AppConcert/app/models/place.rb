@@ -16,7 +16,7 @@ class Place < ActiveRecord::Base
 
   def gmaps4rails_marker_picture
     {
-        "picture" => "/assets/pin24.png",
+        "picture" => "/assets/guitaricon32.png",
         "width"   => 32,
         "height"  => 32
     }
