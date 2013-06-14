@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   def index
 
     if current_user
-      @groups = Group.all
+      @groups = Group.where("user_id = ?", current_user.id)
 
       respond_to do |format|
         format.html # index.html.erb
@@ -50,7 +50,7 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(params[:group])
-
+    @group.user_id = current_user.id
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
@@ -66,7 +66,7 @@ class GroupsController < ApplicationController
   # PUT /groups/1.json
   def update
     @group = Group.find(params[:id])
-
+    @group.user_id = current_user.id
     respond_to do |format|
       if @group.update_attributes(params[:group])
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
