@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
   belongs_to :style
-  attr_accessible :name, :image, :style_id, :user_tokens
+  attr_accessible :name, :image, :style_id, :user_tokens, :photo
 
   has_many :members
   has_many :users, :through => :members
@@ -15,20 +15,20 @@ class Group < ActiveRecord::Base
 
   after_save :guardar_foto
 
-  def image=(file_data)
+  def photo=(file_data)
   	unless file_data.blank?
   		@file_data = file_data
-  		self.image = file_data.split(".").last.downcase
+  		self.image = file_data.original_filename.split('.').last.downcase
   	end
   end 
 
 
   def photo_filename
-  	File.join FOTOS, "#{id}.#{image}"
+  	File.join FOTOS, "group#{id}.#{image}"
   end 
 
   def photo_path
-  	"/photo_store/#{id}/#{image}"
+  	"/photo_store/group#{id}.#{image}"
   end 
 
   def has_photo?
@@ -42,7 +42,7 @@ class Group < ActiveRecord::Base
   		FileUtils.mkdir_p FOTOS
   		 
   		File.open(photo_filename,"wb") do |f|
-  			f.write(@file_data, read)
+  			f.write(@file_data.read)
   		end
   		@file_data = nil
   	end
