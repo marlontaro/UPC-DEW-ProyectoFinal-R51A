@@ -3,13 +3,13 @@ class ConcertsController < ApplicationController
   # GET /concerts.json
   def index
 
-    if current_user
-      @concerts = Concert.all
+    if current_user      
+      @concerts = Concert.where("user_id = ?", current_user.id)
       #@json = Concert.all.to_gmaps4rails
 
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @concerts }
+        format.json { render json: Concert.all }
       end
     else
 
@@ -22,8 +22,7 @@ class ConcertsController < ApplicationController
   # GET /concerts/1
   # GET /concerts/1.json
   def show
-    @concert = Concert.find(params[:id])
-
+    @concert = Concert.find(params[:id])   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @concert }
@@ -50,7 +49,7 @@ class ConcertsController < ApplicationController
   # POST /concerts.json
   def create
     @concert = Concert.new(params[:concert])
-
+    @concert.user_id = current_user.id
     respond_to do |format|
       if @concert.save
         format.html { redirect_to @concert, notice: 'Concert was successfully created.' }
@@ -66,7 +65,7 @@ class ConcertsController < ApplicationController
   # PUT /concerts/1.json
   def update
     @concert = Concert.find(params[:id])
-
+    @concert.user_id = current_user.id
     respond_to do |format|
       if @concert.update_attributes(params[:concert])
         format.html { redirect_to @concert, notice: 'Concert was successfully updated.' }
