@@ -1,8 +1,7 @@
 <%= form_for(@typedocument) do |f| %>
   <% if @typedocument.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@typedocument.errors.count, "error") %> prohibited this typedocument from being saved:</h2>
-
+    <div class="alert alert-error">
+      <b>Oh Error!</b>
       <ul>
       <% @typedocument.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

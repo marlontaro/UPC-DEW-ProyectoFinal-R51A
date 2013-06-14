@@ -3,9 +3,13 @@
         <div class="span12">
             <div class="widget-box">
                 <div class="widget-title">
-                  <h5>Listing concerts</h5>
+                  <h5>Mis Conciertos</h5>
                   <div class="buttons">  
-                    <%= link_to 'New Concert', new_concert_path, :class => 'btn btn-primary' %>
+                    
+                     <%= link_to new_concert_path, :class => 'btn btn-primary' do %>
+                        <i class="icon-plus icon-white"></i> Agregar Concierto
+                    <% end %>    
+
                    </div>
                 </div>
                 
@@ -15,11 +19,12 @@
                     <table class="table table-hover" width="700px">
                          <thead>
                       <tr>
-                        <th width="80px">Concert</th>
-                        <th width="80px">Date</th>    
-                        <th width="100px">Created</th>
-                        <th width="100px">Place</th>
-                        <th width="100px">Group</th>
+                        <th width="80px">Concierto</th>
+                        <th width="100px">Grupo</th>
+                        <th width="80px">Fecha</th>    
+                        <th width="80px">Inicio</th>
+                        <th width="80px">Fin</th>
+                        <th width="100px">Local</th>                      
                         <th width="20px"></th>
                         <th width="20px"></th>
                         <th width="20px"></th>
@@ -28,13 +33,28 @@
                     <% @concerts.each do |concert| %>
                       <tr>
                         <td><%= concert.name %></td>
-                        <td><%= concert.date %></td>     
-                        <td><%= concert.user.name %></td>
-                        <td><%= concert.place.name %></td>
                         <td><%= concert.group.name %></td>
-                        <td><%= link_to 'Show', concert %></td>
-                        <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
-                        <td><%= link_to 'Destroy', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        <td><%= concert.date %></td>   
+                        <td><%= concert.start_time.strftime('%H:%M:%S') %>  
+                        <td><%= concert.end_time.strftime('%H:%M:%S') %>
+                        <td><%= concert.place.name %></td>
+                        <td>
+                            <%= link_to concert , :title => "Mostrar"  do %>
+                                  <i class="icon-align-justify"></i>
+                            <% end %> 
+                        </td>
+                        <td>
+                          <%= link_to edit_concert_path(concert), :title => "Editar"  do %>
+                                  <i class="icon-pencil"></i>
+                          <% end %> 
+                        </td>
+                        <td>
+                          <%= link_to concert, method: :delete, data: { confirm:'¿Estas seguro?' }, :title => "Eliminar" do %>
+                                  <i class="icon-remove"></i>
+                          <% end %> 
+                        </td>
+
+                        
                       </tr>
                     <% end %>
                     </table>

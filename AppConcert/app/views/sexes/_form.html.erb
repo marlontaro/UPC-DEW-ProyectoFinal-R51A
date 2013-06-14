@@ -1,8 +1,7 @@
 <%= form_for(@sex) do |f| %>
   <% if @sex.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sex.errors.count, "error") %> prohibited this sex from being saved:</h2>
-
+    <div class="alert alert-error">
+      <b>Oh Error!</b>
       <ul>
       <% @sex.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

@@ -1,47 +1,100 @@
-<p id="notice"><%= notice %></p>
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+          <h5>Mostrar</h5>
+                 </div>
+                
+                <div class="widget-content">
+                  <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Concert:</b>
-  <%= @concert.name %>
-</p>
+        <div class="form-horizontal"> 
 
-<p>
-  <b>Place:</b>
-  <%= @concert.place.name %>
-</p>
+          <div class="control-group">
+            <span class="control-label">
+              Concierto 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+            <%= @concert.name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Group:</b>
-  <%= @concert.group.name %>
-</p>
+<div class="control-group">
+            <span class="control-label">
+              Local 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+          <%= @concert.place.name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>User:</b>
-  <%= @concert.user.email %>
-</p>
+        <div class="control-group">
+            <span class="control-label">
+              Grupo 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+           <%= @concert.group.name %>
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>Date:</b>
-  <%= @concert.date %>
-</p>
+  <div class="control-group">
+            <span class="control-label">
+              Fecha 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+           <%= @concert.date %>
+            </span> 
+         </div>
+        </div>
+   
 
-<p>
-  <b>Start time:</b>
-  <%= @concert.start_time %>
-</p>
+        <div class="control-group">
+            <span class="control-label">
+              Hora Inicio 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+           <%= @concert.start_time.strftime('%H:%M:%S') %>  
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>End time:</b>
-  <%= @concert.end_time %>
-</p>
+  <div class="control-group">
+            <span class="control-label">
+              Hora Fin 
+            </span>
+            <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+           <%= @concert.end_time.strftime('%H:%M:%S') %>  
+            </span> 
+         </div>
+        </div>
 
-<p>
-  <b>State:</b>
-  <%= @concert.state %>
-</p>
+     
 
 
+        <div class="form-actions">
 
+      <%= link_to edit_concert_path(@concert), :class => 'btn btn-primary'  do %>
+                     <i class="icon-pencil icon-white"></i> Editar
+                <% end %> 
+      <%= link_to 'Volver', concerts_path, :class => 'btn' %>
+      </div>
+      
+      </div>
+             </div>
+          
+         </div>
 
-<%= link_to 'Edit', edit_concert_path(@concert) %> |
-<%= link_to 'Back', concerts_path %>
+  </div>    
+
+ 
+ 

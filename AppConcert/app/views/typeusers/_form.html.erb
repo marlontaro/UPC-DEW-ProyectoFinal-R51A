@@ -1,8 +1,7 @@
 <%= form_for(@typeuser) do |f| %>
   <% if @typeuser.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@typeuser.errors.count, "error") %> prohibited this typeuser from being saved:</h2>
-
+    <div class="alert alert-error">
+      <b>Oh Error!</b>
       <ul>
       <% @typeuser.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

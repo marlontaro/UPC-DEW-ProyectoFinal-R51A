@@ -7,6 +7,8 @@ class Group < ActiveRecord::Base
 
   attr_reader :user_tokens
   
+  validates :name, :style_id, :user_tokens,  :presence => true
+
   def user_tokens=(ids)
     self.user_ids = ids.split(",")
   end
