@@ -35,7 +35,7 @@
                       <tr>
                         <td><%= concert.name %></td>
                         <td><%= concert.group.name %></td>
-                        <td><%= concert.date %></td>   
+                        <td><%= concert.date.strftime('%d/%m/%Y') %></td>   
                         <td><%= concert.start_time.strftime('%H:%M:%S') %>  
                         <td><%= concert.end_time.strftime('%H:%M:%S') %>
                         <td><%= concert.place.name %></td>

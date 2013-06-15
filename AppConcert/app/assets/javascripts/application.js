@@ -22,3 +22,10 @@ $(function() {
     theme: "facebook"
   });
 });
+
+$(function(){
+$('#contenedor').masonry({
+// options
+itemSelector : '.item'
+});
+}); 

@@ -9,40 +9,92 @@
                 <div class="widget-content">
 
                 <%= form_tag search_path, :method => 'get' do %>
-                
-                    <p>
-                      <%= text_field_tag :search, params[:search] %>
-                      <%= submit_tag "Search" , :name => nil %>
-                    </p>
+                    
+                    <div style="padding-left:30px;padding-top:30px">
+
+                      <div style="float:left;padding-top:3px;">
+                        Grupo:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                         <%= text_field_tag :search, params[:search] %>
+                      </div>
+
+                       <div style="float:left;padding-top:3px;padding-left:10px;">
+                        Estilo Musical:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                         <%= text_field_tag :estilo, params[:estilo] %>
+                      </div>
+                   
+
+                        <div style="float:left;padding-top:3px;padding-left:10px;">
+                          Distrito:  
+                        </div>
+                        <div style="float:left;padding-left:5px;">
+                           <%= text_field_tag :distrito, params[:distrito] %>
+                        </div> 
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="padding-left:30px;padding-top:0px">
+
+                      <div style="float:left;padding-top:3px;">
+                        Fecha:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                          <%= date_select :fecha, 'Fecha' %>  
+                      </div>
+
+                       <div style="float:left;padding-top:0px;padding-left:10px;">
+                         <%= button_tag( type: 'submit', :name => nil, class: "btn") do %>
+                          <i class="icon-search"></i> Buscar
+                        <% end %>  
+                            <%= link_to 'Todos', search_path, :class => 'btn' %>
+                      </div>
+                      <div style="clear:both"></div>
+                    </div>
+                  
                 <% end %>
 
-                <div id="wrapper">
-                  <div id="columns">
+               <div id="contenedor">
+                 
 
                   
                    <% if( @concerts.count != 0 ) %>
                     <% @concerts.each do |concert| %>
-                        <div class="pin">
+                        <div class="item">
                            <%= image_tag concert.group.photo_path %>
                           <div style="text-align: center">
                             <b><%= concert.name %></b>
                           </div> 
                           
-                          <div>
-                            <b>Grupo:</b>&nbsp;&nbsp; <%= concert.group.name %>
+                          <div style="padding-left:10px">
+                            <b>Grupo:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.group.name %>
+                          </div> 
+
+                          <div style="padding-left:10px">
+                            <b>Estilo:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.group.style.name %>
                           </div> 
                           
-                          <div>
-                            <b>Local:</b>&nbsp;&nbsp;&nbsp; <%= concert.place.name %>
+                          <div style="padding-left:10px">
+                            <b>Local:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.place.name %>
                           </div> 
 
-                          <div>
-                            <b>Fecha:</b>&nbsp;&nbsp; <%= concert.date %>
+                          <div style="padding-left:10px">
+                            <b>Dirección:</b>&nbsp;&nbsp;&nbsp;<%= concert.place.address %>
                           </div> 
 
-                           <div>
-                            <b>Hora</b>&nbsp;&nbsp;&nbsp;  <%= concert.start_time.strftime('%H:%M:%S') %> &nbsp;  -&nbsp;  
-                          <%= concert.end_time.strftime('%H:%M:%S') %>
+                          <div style="padding-left:10px">
+                            <b>Distrito:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.place.district.name %>
+                          </div> 
+
+
+                          <div style="padding-left:10px">
+                            <b>Fecha:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.date.strftime('%d/%m/%Y') %>
+                          </div> 
+
+                           <div style="padding-left:10px">
+                            <b>Hora</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.start_time.strftime('%H:%M:%S') %>&nbsp;-&nbsp;<%= concert.end_time.strftime('%H:%M:%S') %>
                           </div> 
                         </div>
                         
@@ -53,7 +105,7 @@
                             No hay datos ingrese conciertos
                        </div>
                     <% end %>
-                </div>
+               
               </div>
             </div>
             </div>
