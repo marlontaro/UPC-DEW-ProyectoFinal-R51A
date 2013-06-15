@@ -1,0 +1,68 @@
+ <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+                  <h5>Buscar Concierto</h5>                  
+                </div>
+            
+                <div class="widget-content">
+
+                <%= form_tag search_path, :method => 'get' , :url => "concertall" do %>
+
+                	    <div style="padding-left:30px;padding-top:30px">
+
+                      <div style="float:left;padding-top:3px;">
+                        Grupo:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                         <%= text_field_tag :search, params[:search] %>
+                      </div>
+
+                       <div style="float:left;padding-top:3px;padding-left:10px;">
+                        Estilo Musical:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                         <%= text_field_tag :estilo, params[:estilo] %>
+                      </div>
+                   
+
+                        <div style="float:left;padding-top:3px;padding-left:10px;">
+                          Distrito:  
+                        </div>
+                        <div style="float:left;padding-left:5px;">
+                           <%= text_field_tag :distrito, params[:distrito] %>
+                        </div> 
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="padding-left:30px;padding-top:0px">
+
+                      <div style="float:left;padding-top:3px;">
+                        Fecha:  
+                      </div>
+                      <div style="float:left;padding-left:5px;">
+                          <%= date_select :fecha, 'Fecha' %>  
+                      </div>
+
+                       <div style="float:left;padding-top:0px;padding-left:10px;">
+                         <%= button_tag( type: 'submit', class: "btn") do %>
+                          <i class="icon-search"></i> Buscar
+                        <% end %>  
+                            <%= link_to 'Hoy', search_path, :class => 'btn' %>
+                      </div>
+                      <div style="clear:both"></div>
+                    </div>
+
+
+                <% end %>
+              </div>
+</div>
+  
+</div>
+
+             
+          
+         </div>
+
+  </div>

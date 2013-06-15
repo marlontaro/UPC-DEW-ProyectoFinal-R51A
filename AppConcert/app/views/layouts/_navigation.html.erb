@@ -17,6 +17,12 @@
     		<%= link_to 'Mis Grupos', groups_path %>
         </li>
         <% end %>
+
+         <% if current_user.typeuser_id == 1 %>
+        <li>
+            <%= link_to 'Todos Conciertos', all_path %>
+        </li>
+         <% end %>
         <% if current_user.typeuser_id == 1 %>
         <li>
     		<%= link_to 'Locales', places_path %>

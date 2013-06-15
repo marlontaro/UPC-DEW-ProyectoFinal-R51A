@@ -35,7 +35,9 @@ AppConcert::Application.routes.draw do
   get "logout" => "home#destroy", :as => "logout" 
   get "login" => "home#index", :as => "login"
   get "search" => "search#new", :as => "search"
-  
+  get "all" => "all#new", :as => "all"
+
+
   match "signup" => "users#signup"
   match "registration" => "users#registration"
 

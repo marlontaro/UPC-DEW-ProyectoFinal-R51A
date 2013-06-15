@@ -11,7 +11,7 @@ class Place < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-    "<b>#{name}</b><br>#{address}<br><img src='/assets/#{id}.png' height='100' width='100%'>"
+    "<b>#{name}</b><br>Direccion:#{address}<br>"
   end
 
   def gmaps4rails_marker_picture

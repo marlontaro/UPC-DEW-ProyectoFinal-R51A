@@ -32,4 +32,12 @@ class SearchController < ApplicationController
   def index
   		# @concerts = Concert.all
   end 
+
+  def all
+    
+  end 
+
+  def concertall
+      @concerts = Concert.joins(:group => :style, :place => :district).where("date(concerts.date) = ?", DateTime.now.to_date )
+  end 
 end
