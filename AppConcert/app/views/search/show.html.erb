@@ -1,0 +1,79 @@
+<table>
+  <tr>
+    <td><h5><%= @concerts.name %></h5></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Grupo:<%= @concerts.group.name %> </td>
+    <td>
+
+      <% for user in @concerts.group.users %>
+          <li><%= user.name %></li>
+      <% end %>
+
+    </td>
+  </tr>
+  <tr>
+    <td>Estilo Musical</td>
+    <td><%= @concerts.group.style.name %></td>
+  </tr>
+  <tr>
+    <td>Fecha</td>
+    <td><%= @concerts.date %></td>
+  </tr>
+  <tr>
+    <td>Hora Inicio</td>
+    <td><%= @concerts.start_time.strftime('%H:%M:%S') %></td>
+  </tr>
+  <tr>
+    <td>Hora Final</td>
+    <td><%= @concerts.end_time.strftime('%H:%M:%S') %></td>
+  </tr>
+  <tr>
+    <td>Distrito</td>
+    <td><%= @concerts.place.name %></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td><h5>Comentarios</h5></td>
+  </tr>
+  <tr>
+    <td>
+
+
+      <table>
+        <% for comment in Comment.find_all_by_concert_id(@concerts.id) %>
+            <tr>
+              <td><%= comment.comment %></td>
+            </tr>
+            <tr>
+              <td><%= comment.user.name %></td>
+            </tr>
+            <tr>
+              <td>Punto:<%= comment.score %></td>
+            </tr>
+        <% end %>
+      </table>
+
+      <h2>Add a comment:</h2>
+      <%= form_for([@concerts, @concerts.comments.build]) do |f| %>
+          <div class="field">
+            <%= f.label :score %><br />
+            <%= f.text_field :score %>
+          </div>
+          <div class="field">
+            <%= f.label :comment %><br />
+            <%= f.text_area :comment %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+      <% end %>
+
+
+    </td>
+  </tr>
+</table>

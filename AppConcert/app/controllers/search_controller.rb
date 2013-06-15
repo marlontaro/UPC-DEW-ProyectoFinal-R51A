@@ -39,5 +39,14 @@ class SearchController < ApplicationController
 
   def concertall
       @concerts = Concert.joins(:group => :style, :place => :district).where("date(concerts.date) = ?", DateTime.now.to_date )
-  end 
+  end
+
+  def show
+    @concerts = Concert.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @concerts }
+    end
+  end
+
 end

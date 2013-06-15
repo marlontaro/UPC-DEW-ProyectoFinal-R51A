@@ -2,6 +2,7 @@ class Concert < ActiveRecord::Base
   belongs_to :user
   belongs_to :place
   belongs_to :group
+  has_many :comments
   attr_accessible :name, :date, :end_time, :start_time, :state,:user_id, :place_id, :group_id
 
   validates :name, :date, :end_time, :start_time, :user_id, :place_id, :group_id, :presence => true

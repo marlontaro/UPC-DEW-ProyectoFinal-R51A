@@ -103,7 +103,12 @@
 
                            <div style="padding-left:10px">
                             <b>Hora</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.start_time.strftime('%H:%M:%S') %>&nbsp;-&nbsp;<%= concert.end_time.strftime('%H:%M:%S') %>
-                          </div> 
+                          </div>
+
+                          <div style="padding-left:10px">
+                          <%= link_to 'show', {:controller => 'search', :action => 'show', :id => concert.id} %>
+                          </div>
+
                         </div>
                         
                       </tr>

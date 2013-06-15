@@ -2,30 +2,14 @@ AppConcert::Application.routes.draw do
  
  
   resources :sessions
-
   resources :typedocuments
-
-
   resources :typeusers
-
-
   resources :sexes
-
-
   resources :concerts
-
-
   resources :users
-
-
   resources :groups
-
-
   resources :places
-
-
   resources :styles
-
   resources :districts
   
   #resources :search
@@ -35,11 +19,15 @@ AppConcert::Application.routes.draw do
   get "logout" => "home#destroy", :as => "logout" 
   get "login" => "home#index", :as => "login"
   get "search" => "search#new", :as => "search"
+  get "rsearch" => "search#show", :as => "rsearch"
   get "all" => "all#new", :as => "all"
-
 
   match "signup" => "users#signup"
   match "registration" => "users#registration"
+
+  resources :concerts do
+    resources :comments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
