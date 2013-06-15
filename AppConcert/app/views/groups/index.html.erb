@@ -27,6 +27,7 @@
     <th width="20px"></th>
   </tr>
 </thead>
+  <% if( @groups.count != 0 ) %>
 <% @groups.each do |group| %>
   <tr>
     <td><%= group.name %></td>
@@ -53,6 +54,13 @@
 
   </tr>
 <% end %>
+ <% else %>
+                      <tr>
+                          <td colspan="6">
+                            No hay datos ingrese grupos
+                          </td>
+                      </tr>
+                    <% end %>
 </table>
 
   </div>

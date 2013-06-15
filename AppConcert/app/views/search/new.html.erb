@@ -6,8 +6,55 @@
                   <h5>Buscar Concierto</h5>                  
                 </div>
             
-            <div class="widget-content">
-              Buscar
+                <div class="widget-content">
+
+                <%= form_tag search_path, :method => 'get' do %>
+                
+                    <p>
+                      <%= text_field_tag :search, params[:search] %>
+                      <%= submit_tag "Search" , :name => nil %>
+                    </p>
+                <% end %>
+
+                <div id="wrapper">
+                  <div id="columns">
+
+                  
+                   <% if( @concerts.count != 0 ) %>
+                    <% @concerts.each do |concert| %>
+                        <div class="pin">
+                           <%= image_tag concert.group.photo_path %>
+                          <div style="text-align: center">
+                            <b><%= concert.name %></b>
+                          </div> 
+                          
+                          <div>
+                            <b>Grupo:</b>&nbsp;&nbsp; <%= concert.group.name %>
+                          </div> 
+                          
+                          <div>
+                            <b>Local:</b>&nbsp;&nbsp;&nbsp; <%= concert.place.name %>
+                          </div> 
+
+                          <div>
+                            <b>Fecha:</b>&nbsp;&nbsp; <%= concert.date %>
+                          </div> 
+
+                           <div>
+                            <b>Hora</b>&nbsp;&nbsp;&nbsp;  <%= concert.start_time.strftime('%H:%M:%S') %> &nbsp;  -&nbsp;  
+                          <%= concert.end_time.strftime('%H:%M:%S') %>
+                          </div> 
+                        </div>
+                        
+                      </tr>
+                    <% end %>
+                    <% else %>
+                       <div class="pin">
+                            No hay datos ingrese conciertos
+                       </div>
+                    <% end %>
+                </div>
+              </div>
             </div>
             </div>
           

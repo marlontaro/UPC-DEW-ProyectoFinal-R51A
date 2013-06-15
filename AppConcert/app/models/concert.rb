@@ -4,7 +4,7 @@ class Concert < ActiveRecord::Base
   belongs_to :group
   attr_accessible :name, :date, :end_time, :start_time, :state,:user_id, :place_id, :group_id
 
-  validates :date, :end_time, :start_time, :user_id, :place_id, :group_id, :presence => true
+  validates :name, :date, :end_time, :start_time, :user_id, :place_id, :group_id, :presence => true
 
   #acts_as_gmappable
 
