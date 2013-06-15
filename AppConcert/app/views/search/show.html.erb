@@ -1,79 +1,159 @@
-<table>
-  <tr>
-    <td><h5><%= @concerts.name %></h5></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Grupo:<%= @concerts.group.name %> </td>
-    <td>
+  <div class="row-fluid">
+       
+        <div class="span12">
+            <div class="widget-box">
+                <div class="widget-title">
+          <h5>Mostrar Concierto</h5>
+                 </div>
+                
 
-      <% for user in @concerts.group.users %>
-          <li><%= user.name %></li>
-      <% end %>
-
-    </td>
-  </tr>
-  <tr>
-    <td>Estilo Musical</td>
-    <td><%= @concerts.group.style.name %></td>
-  </tr>
-  <tr>
-    <td>Fecha</td>
-    <td><%= @concerts.date %></td>
-  </tr>
-  <tr>
-    <td>Hora Inicio</td>
-    <td><%= @concerts.start_time.strftime('%H:%M:%S') %></td>
-  </tr>
-  <tr>
-    <td>Hora Final</td>
-    <td><%= @concerts.end_time.strftime('%H:%M:%S') %></td>
-  </tr>
-  <tr>
-    <td>Distrito</td>
-    <td><%= @concerts.place.name %></td>
-  </tr>
-</table>
-
-<table>
-  <tr>
-    <td><h5>Comentarios</h5></td>
-  </tr>
-  <tr>
-    <td>
+          <div class="widget-content">
+        <div class="form-horizontal"> 
 
 
-      <table>
-        <% for comment in Comment.find_all_by_concert_id(@concerts.id) %>
-            <tr>
-              <td><%= comment.comment %></td>
-            </tr>
-            <tr>
-              <td><%= comment.user.name %></td>
-            </tr>
-            <tr>
-              <td>Punto:<%= comment.score %></td>
-            </tr>
+          <div class="control-group">
+            <span class="control-label">Concierto</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.name %>
+            </span> 
+         </div>
+        </div>
+
+
+        <div class="control-group">
+            <span class="control-label">Banda</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.group.name %>
+            </span> 
+         </div>
+        </div>
+
+
+        <div class="control-group">
+            <span class="control-label">Integrantes</span>
+              <div class="controls" >
+                  <ul>
+             <% for user in @concerts.group.users %>
+                <li><%= user.name %></li>
+              <% end %>
+            </ul>
+         </div>
+        </div>
+
+<div class="control-group">
+            <span class="control-label">Estilo</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.group.style.name %>
+            </span> 
+         </div>
+        </div>
+
+        <div class="control-group">
+            <span class="control-label">Local</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.place.name %>
+            </span> 
+         </div>
+        </div>
+
+
+        <div class="control-group">
+            <span class="control-label">Direccion</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.place.address %>
+            </span> 
+         </div>
+        </div>
+
+         <div class="control-group">
+            <span class="control-label">Distrito</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.place.district.name %>
+            </span> 
+         </div>
+        </div>
+
+
+         <div class="control-group">
+            <span class="control-label">Fecha</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+              <%= @concerts.date %>
+            </span> 
+         </div>
+        </div>
+
+         <div class="control-group">
+            <span class="control-label">Hora Inicio</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+             <%= @concerts.start_time.strftime('%H:%M:%S') %>
+            </span> 
+         </div>
+        </div>
+
+ <div class="control-group">
+            <span class="control-label">Hora Fin</span>
+              <div class="controls" >
+            <span class="input-xlarge uneditable-input">
+             <%= @concerts.end_time.strftime('%H:%M:%S') %>
+            </span> 
+         </div>
+        </div>
+
+
+ 
+ <h4>Comentarios:</h4>
+ <hr/>
+ <div style="padding-left:150px;">
+   <% for comment in Comment.find_all_by_concert_id(@concerts.id) %>
+   <div><b>Comentario:</b>&nbsp;<%= comment.comment %></div>
+    <div><b>Usuario</b>&nbsp;<%= comment.user.name %>&nbsp;&nbsp;<b>Puntaje:</b>&nbsp;<%= comment.score %></div>
+           <br/><br/>
+           
         <% end %>
-      </table>
+</div>
 
-      <h2>Add a comment:</h2>
+<h4>Agregar Comentario:</h4>
+ 
       <%= form_for([@concerts, @concerts.comments.build]) do |f| %>
-          <div class="field">
-            <%= f.label :score %><br />
-            <%= f.text_field :score %>
-          </div>
-          <div class="field">
-            <%= f.label :comment %><br />
-            <%= f.text_area :comment %>
-          </div>
+      <div class="control-group">
+      <span class="control-label">  
+         <%= f.label :score ,'Puntaje'%>
+      </span>
+      <div class="controls" >
+          <%= f.text_field :score %>
+      </div>
+    </div>
+    <div class="control-group">
+      <span class="control-label">  
+        <%= f.label :comment,"Comenario" , :rows => 5, :cols => 25 %>
+      </span>
+      <div class="controls" >
+          <%= f.text_area :comment %>
+      </div>
+    </div>
+   <div class="form-actions">
+       <%= button_tag( type: 'submit', class: "btn btn-primary") do %>
+        <i class="icon-ok icon-white"></i> Enviar 
+      <% end %>      
+    </div>
+        
 
-          <div class="actions">
-            <%= f.submit %>
-          </div>
       <% end %>
 
 
     </td>
   </tr>
 </table>
+</div>
+          
+         </div>
+
+  </div>    

@@ -53,7 +53,7 @@
                         <th width="80px">Fin</th>
                         <th width="100px">Local</th>  
                         <th width="100px">Creado</th>                      
-                       
+                       <th ></th>                      
                       </tr>
                         </thead>
                     <% if( @concerts.count != 0 ) %>
@@ -66,7 +66,7 @@
                         <td><%= concert.end_time.strftime('%H:%M:%S') %>
                         <td><%= concert.place.name %></td>
                          <td><%= concert.user.name %></td>
-
+                          <td>  <%= link_to 'Mostrar', {:controller => 'search', :action => 'show', :id => concert.id}  %>  </td>
                         
                       </tr>
                     <% end %>

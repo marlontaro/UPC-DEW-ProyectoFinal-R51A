@@ -103,11 +103,15 @@
 
                            <div style="padding-left:10px">
                             <b>Hora</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= concert.start_time.strftime('%H:%M:%S') %>&nbsp;-&nbsp;<%= concert.end_time.strftime('%H:%M:%S') %>
+                          </div> 
+
+                            <div style="padding-left:10px;padding-top:5px;padding-bottom:5px;padding-right:10px;">
+                              <div style="float:right">
+                                <%= link_to 'Mostrar', {:controller => 'search', :action => 'show', :id => concert.id} , :class => 'btn btn-success' %>
+                              </div>
+                              <div style="clear:both"></div>
                           </div>
 
-                          <div style="padding-left:10px">
-                          <%= link_to 'show', {:controller => 'search', :action => 'show', :id => concert.id} %>
-                          </div>
 
                         </div>
                         
@@ -149,7 +153,7 @@
            <%= "var point = new google.maps.LatLng(#{place.latitude},#{place.longitude});" %>
            <% @concertdsc ="" %>
            <% for concert in @concerts.find_all_by_place_id(place.id) %>
-           <% @concertdsc = @concertdsc + "<tr><td width='100px'>#{concert.name}</td><td width='150px'><b>#{concert.group.name}</b></td><td width='100px'>#{concert.date.strftime('%m/%d/%Y')}</td><td>#{concert.start_time.strftime('%X')}-</td><td width='80px'>#{concert.end_time.strftime('%X')}</td><td><a href=\'http://www.w3schools.com\'>Registrar</a></td></tr>" %>
+           <% @concertdsc = @concertdsc + "<tr><td width='100px'>#{concert.name}</td><td width='150px'><b>#{concert.group.name}</b></td><td width='100px'>#{concert.date.strftime('%m/%d/%Y')}</td><td>#{concert.start_time.strftime('%X')}-</td><td width='80px'>#{concert.end_time.strftime('%X')}</td><td><a href=\'/rsearch?id=#{concert.id}\'>Mostrar</a></td></tr>" %>
            <% end %>
            <%= "var marker = createMarker(point,\"#{place.name}\",\"<div style='text-align: center'><b>#{place.name}</b><br/></div><div>Direccion: #{place.address}</div><div>Distrito: #{place.district.name}</div><br/><div>Conciertos:<hr></div><table>#{@concertdsc}</table>\");".html_safe %>
            <% end %>
